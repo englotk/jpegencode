@@ -162,9 +162,9 @@ int WriteBitmapFile (char* FileName,  BMPImageStruct *Image)
 	fwrite (&entier32,sizeof(uint16_t),1,ImageFile);		// nombre de plans (toujour =1), 2 octets
 	dec2hex(Image->bpp,entier32,sizeof(uint16_t));
 	fwrite (&entier32,sizeof(uint16_t),1,ImageFile);		// nombre de bits par pixel, 2 octets
-	dec2hex(Image->compression,entier32,sizeof(4));
+	dec2hex(Image->compression,entier32,sizeof(uint32_t));
 	fwrite (&entier32,sizeof(uint32_t),1,ImageFile);		// compression (0=rien), 4 octets
-	dec2hex(Image->imagesize,entier32,sizeof(4));
+	dec2hex(Image->imagesize,entier32,sizeof(uint32_t));
 	fwrite (&entier32,sizeof(uint32_t),1,ImageFile);		// taille de l'image, 4 octets
 	dec2hex (Image->Hres,entier32,sizeof(uint32_t));
 	fwrite (&entier32,sizeof(uint32_t),1,ImageFile);		// r solution horizontale en pixels par m tre, 4 octets
