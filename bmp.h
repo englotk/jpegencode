@@ -108,11 +108,11 @@ int ReadBitmapFile (char* FileName,  BMPImageStruct *Image)
 	fread (&entier32,sizeof(uint32_t),1,ImageFile);		// compression (0=rien), 4 octets
 	Image->compression = hex2dec(entier32,sizeof(uint32_t));
 	fread (&entier32,sizeof(uint32_t),1,ImageFile);		// taille de l'image, 4 octets
-	Image->imagesize = hex2dec(entier32,sizeof(long));
+	Image->imagesize = hex2dec(entier32,sizeof(uint32_t));
 	fread (&entier32,sizeof(uint32_t),1,ImageFile);		// r�solution horizontale en pixels par m�tre, 4 octets
 	Image->Hres = hex2dec (entier32,sizeof(uint32_t));
 	fread (&entier32,sizeof(uint32_t),1,ImageFile);		// r�solution verticale, en pixels par m�tre, 4 octets
-	Image->Vres = hex2dec (entier32,sizeof(long));
+	Image->Vres = hex2dec (entier32,sizeof(uint32_t));
 	fread (&entier32,sizeof(uint32_t),1,ImageFile);		// nombre de couleurs utilis�es (0=toutes), 4 octets
 	Image->colors = hex2dec (entier32,sizeof(uint32_t));
 	fread (&entier32,sizeof(uint32_t),1,ImageFile);		// nombre de couleurs importantes (0=toutes), 4 octets
